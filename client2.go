@@ -3,12 +3,10 @@ package fiberinterstate
 import (
 	"bufio"
 	"context"
+	"errors"
 	"fmt"
-	//"log"
 	"net"
 	"os"
-	//"path/filepath"
-	"errors"
 	"strconv"
 	"strings"
 	"time"

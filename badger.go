@@ -2,12 +2,10 @@ package fiberinterstate
 
 import (
 	//"fmt"
-	"os"
-	//"path"
 	"errors"
+	"os"
 
 	badger "github.com/dgraph-io/badger/v4"
-	//"github.com/gofiber/fiber/v3"
 )
 
 type DBSE struct {

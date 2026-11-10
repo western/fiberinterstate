@@ -3,15 +3,13 @@ package fiberinterstate
 import (
 	"bufio"
 	"fmt"
-	//"log"
 	"net"
 	"os"
 	"os/signal"
-	//"path/filepath"
-	//"strings"
 	"sync"
 	"syscall"
 	"time"
+	//"strings"
 )
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------
