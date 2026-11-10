@@ -1,11 +1,12 @@
 package fiberinterstate
 
 import (
-	"fmt"
+	//"fmt"
 	//"time"
 	//"errors"
 	//"os"
 	//"strconv"
+	"context"
 	"strings"
 
 	"github.com/gofiber/fiber/v3"
@@ -99,7 +100,7 @@ func server_start(cfg Config) {
 		text_command := strings.Split(msg, ":")
 		if len(text_command) == 2 {
 
-			fmt.Println("text_command=", text_command)
+			//fmt.Println("text_command=", text_command)
 
 			if text_command[0] == "GET" {
 				ret, err := BadgerGetOne(text_command[1])
@@ -108,7 +109,7 @@ func server_start(cfg Config) {
 					c.outbox <- ret
 				} else {
 
-					fmt.Println("return err=", err.Error(), " for val=", text_command[1])
+					//fmt.Println("return err=", err.Error(), " for val=", text_command[1])
 
 					c.outbox <- []byte("(empty)")
 				}
@@ -125,7 +126,7 @@ func server_start(cfg Config) {
 
 		if len(text_command) == 3 {
 
-			fmt.Println("text_command=", text_command)
+			//fmt.Println("text_command=", text_command)
 
 			if text_command[0] == "SET" {
 
@@ -222,7 +223,7 @@ func SetWithContext(ctx context.Context, key, val string) error {
 		return err
 	}
 
-	return Set(key)
+	return Set(key, val)
 
 }
 
