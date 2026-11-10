@@ -39,19 +39,12 @@ Benchmarks show measurable improvement (10-20% more throughput) for:
 
 ## Code
 
-```
-
-app := fiber.New()
-
-app.Listen(":3000", fiber.ListenConfig{
-    EnablePrefork: true,
-})
-
-```
-
 Middleware connect
 
-```
+```golang
+
+// Fiber v3 init
+app := fiber.New()
 
 app.Use(fiberinterstate.New(fiberinterstate.Config{
 
@@ -59,6 +52,10 @@ app.Use(fiberinterstate.New(fiberinterstate.Config{
     BadgerDirectory: path.Join(conf.ConfigRoot, "db", "registry.bd."+conf.Version),
     LogEnable: true,
 }))
+
+app.Listen(":3000", fiber.ListenConfig{
+    EnablePrefork: true,
+})
 
 ```
 
