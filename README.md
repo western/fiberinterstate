@@ -10,7 +10,7 @@
 
 ## Badger with prefork
 
-You can use badger storage and prefork together.
+You can use `Badger storage` and `Fiber prefork` together.
 
 ## Code
 
