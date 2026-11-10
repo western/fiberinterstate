@@ -23,6 +23,11 @@ When you start a preforked Fiber app:
 
 Each child is an independent OS process with its own Go runtime, its own goroutine scheduler, and its own memory. There is no shared state between children.
 
+## Then
+
+- Master process open the database Badger and make IPC server
+- Every operations from prefork processes make IPC request to the master process
+
 ## When It Actually Helps
 
 Prefork mode helps in a very specific scenario: **CPU-bound workloads that saturate the Go scheduler**.
