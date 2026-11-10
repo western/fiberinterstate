@@ -37,5 +37,29 @@ Benchmarks show measurable improvement (10-20% more throughput) for:
     <img src="https://github.com/western/fiberinterstate/blob/dev/img/scheme-02.jpg?raw=true" width="60%" />
 </p>
 
+## Code
+
+```
+
+app := fiber.New()
+
+app.Listen(":3000", fiber.ListenConfig{
+    EnablePrefork: true,
+})
+
+```
+
+Middleware connect
+
+```
+
+app.Use(fiberinterstate.New(fiberinterstate.Config{
+
+    App: app,
+    BadgerDirectory: path.Join(conf.ConfigRoot, "db", "registry.bd."+conf.Version),
+    LogEnable: true,
+}))
+
+```
 
 
