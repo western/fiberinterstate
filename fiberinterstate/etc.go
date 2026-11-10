@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	//"github.com/gofiber/fiber/v3"
 	"github.com/fatih/color"
+	"github.com/gofiber/fiber/v3"
 )
 
 // -------------------------------------------------------------------------------------------------------------------------------------
@@ -28,13 +28,23 @@ var (
 // -------------------------------------------------------------------------------------------------------------------------------------
 
 const (
-	socketFile   = "fiberinterstate.sock"
+	//socketFile   = "fiberinterstate.sock"
 	dialTimeout  = 5 * time.Second
 	writeTimeout = 10 * time.Second
 	sendInterval = 2 * time.Second
 )
 
 func socketPath() string {
+
+	socketFile := fmt.Sprintf("fiberinterstate-%d.sock", os.Getpid())
+
+	if fiber.IsChild() {
+
+		socketFile = fmt.Sprintf("fiberinterstate-%d.sock", os.Getppid())
+	}
+
+	//fmt.Println(os.Getpid(), " socketPath()", "socketFile=", socketFile)
+
 	return filepath.Join(os.TempDir(), socketFile)
 }
 
