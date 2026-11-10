@@ -5,6 +5,12 @@ Golang Fiber can be Speedest Train
     <img src="https://github.com/western/fiberinterstate/blob/dev/img/fiber-interstate.jpg?raw=true" />
 </p>
 
+## Badger with prefork
+
+You can use badger storage and prefork together.
+
+Master and prefork children can talk.
+
 ## How It Works Under the Hood
 
 When you start a preforked Fiber app:
