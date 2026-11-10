@@ -59,4 +59,20 @@ app.Listen(":3000", fiber.ListenConfig{
 
 ```
 
+## Inside the controller
+
+```golang
+
+import (
+    fis "github.com/western/fiberinterstate"
+)
+
+res, err := fis.Get(key string) (string, error)
+err := fis.Set(key, value string) (error)
+err := fis.Delete(key string) (error)
+
+```
+
+
+
 
