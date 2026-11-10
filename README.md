@@ -9,7 +9,42 @@ Golang Fiber can be Speedest Train
 
 You can use badger storage and prefork together.
 
-Master and prefork children can talk.
+## Code
+
+Middleware connect
+
+```golang
+
+// Fiber v3 init
+app := fiber.New()
+
+app.Use(fiberinterstate.New(fiberinterstate.Config{
+
+    App: app,
+    BadgerDirectory: path.Join(conf.ConfigRoot, "db", "registry.bd."+conf.Version),
+    LogEnable: true,
+}))
+
+app.Listen(":3000", fiber.ListenConfig{
+    EnablePrefork: true,
+})
+
+```
+
+## Inside the controller
+
+```golang
+
+import (
+    fis "github.com/western/fiberinterstate"
+)
+
+res, err := fis.Get(key string) (string, error)
+err := fis.Set(key, value string) (error)
+err := fis.Delete(key string) (error)
+
+```
+
 
 ## How It Works Under the Hood
 
@@ -48,41 +83,6 @@ Benchmarks show measurable improvement (10-20% more throughput) for:
     <img src="https://github.com/western/fiberinterstate/blob/dev/img/scheme-02.jpg?raw=true" width="60%" />
 </p>
 
-## Code
-
-Middleware connect
-
-```golang
-
-// Fiber v3 init
-app := fiber.New()
-
-app.Use(fiberinterstate.New(fiberinterstate.Config{
-
-    App: app,
-    BadgerDirectory: path.Join(conf.ConfigRoot, "db", "registry.bd."+conf.Version),
-    LogEnable: true,
-}))
-
-app.Listen(":3000", fiber.ListenConfig{
-    EnablePrefork: true,
-})
-
-```
-
-## Inside the controller
-
-```golang
-
-import (
-    fis "github.com/western/fiberinterstate"
-)
-
-res, err := fis.Get(key string) (string, error)
-err := fis.Set(key, value string) (error)
-err := fis.Delete(key string) (error)
-
-```
 
 
 
