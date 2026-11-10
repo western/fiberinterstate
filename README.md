@@ -8,7 +8,7 @@ Golang Fiber can be Speedest Train
 ## scheme
 
 <p align="center">
-    <img src="https://github.com/western/fiberinterstate/blob/dev/img/scheme-01.jpg?raw=true" width="60%" />
+    <img src="https://github.com/western/fiberinterstate/blob/dev/img/scheme-02.jpg?raw=true" width="60%" />
 </p>
 
 
