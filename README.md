@@ -18,7 +18,11 @@ Middleware connect
 
 ```golang
 
-// Fiber v3 init
+import (
+    "github.com/gofiber/fiber/v3"
+    fis "github.com/western/fiberinterstate"
+)
+
 app := fiber.New()
 
 app.Use(fiberinterstate.New(fiberinterstate.Config{
