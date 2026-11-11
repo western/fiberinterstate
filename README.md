@@ -25,10 +25,10 @@ import (
 
 app := fiber.New()
 
-app.Use(fiberinterstate.New(fiberinterstate.Config{
+app.Use(fis.New(fis.Config{
 
     App: app,
-    BadgerDirectory: path.Join(conf.ConfigRoot, "db", "registry.bd."+conf.Version),
+    BadgerDirectory: path.Join(os.TempDir(), "db_test"),
     LogEnable: true,
 }))
 
